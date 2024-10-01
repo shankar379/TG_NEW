@@ -1,0 +1,20 @@
+Day,09:00 - 10:00,10:00 - 10:50,11:10 - 12:00,12:00 - 12:50,Lunch Break,01:30 - 02:20,02:20 - 03:10,03:10 - 04:00
+Monday,CC (haritha),ELECTRICALVEHICALS (eee1),CC (haritha),EH (ravikiran),Lunch Break,IC (ece1),EH (ravikiran),UHV (setakumari)
+Tuesday,UHV (setakumari),IC (ece1),EH (ravikiran),DLT (ramakrishna),Lunch Break,EH (ravikiran),ELECTRICALVEHICALS (eee1),IC (ece1)
+Wednesday,ELECTRICALVEHICALS (eee1),UHV (setakumari),IC (ece1),DLT (ramakrishna),Lunch Break,UHV (setakumari),IC (ece1),ELECTRICALVEHICALS (eee1)
+Thursday,SO&MS LAB (ramakrishna),SO&MS LAB (ramakrishna),SO&MS LAB (ramakrishna),UHV (setakumari),Lunch Break,DLT (ramakrishna),CC (haritha),DLT (ramakrishna)
+Friday,CC (haritha),DLT (ramakrishna),EH (ravikiran),CC (haritha),Lunch Break,ELECTRICALVEHICALS (eee1),Free,Free
+Saturday,SO&MS LAB (ramakrishna),SO&MS LAB (ramakrishna),SO&MS LAB (ramakrishna),Free,Lunch Break,Free,Free,Free
+
+
+Faculty and Courses for Year year4, Department CSE_A:
+    faculty             course
+       ece1                 IC
+       eee1 ELECTRICALVEHICALS
+    haritha                 CC
+ramakrishna                DLT
+  ravikiran                 EH
+ setakumari                UHV
+Faculty and Labs for Year year4, Department CSE_A:
+    faculty  lab_name
+ramakrishna SO&MS LAB
