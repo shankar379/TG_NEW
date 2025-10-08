@@ -198,6 +198,7 @@
     </style>
 </head>
 <body class="light-mode">
+    {% csrf_token %}
     <div class="top-bar">
         <img class="menu-img" src="{% static 'image/tglogo.png' %}" alt="tglogo" >
         <div class="title">TIMETABLE GENERATOR</div> <!-- Add this line -->
