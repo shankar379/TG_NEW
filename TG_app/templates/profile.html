@@ -142,6 +142,158 @@
             width: 24px;
             height: 24px;
         }
+
+        /* Projects Section Styles */
+        .projects-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2em;
+            margin-top: 1em;
+        }
+
+        .project-card {
+            display: flex;
+            background: #f18e36;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease;
+            min-height: 350px;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-left-section {
+            background: #f18e36;
+            flex: 0 0 30%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 30px 20px;
+            position: relative;
+            align-items: center;
+        }
+
+        .project-right-section {
+            background: #000000;
+            flex: 0 0 70%;
+            padding: 30px 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .project-icon {
+            font-size: 48px;
+            color: #000000;
+            margin-bottom: 20px;
+        }
+
+        .project-quote {
+            color: white;
+            font-style: italic;
+            font-size: 16px;
+            line-height: 1.4;
+            margin-bottom: 20px;
+        }
+
+        .project-admin-btn {
+            background: #000000;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 13px;
+            transition: background 0.3s ease;
+            width: auto;
+            max-width: 120px;
+        }
+
+        .project-admin-btn:hover {
+            background: #333;
+        }
+
+        .project-title {
+            color: #f97316;
+            font-size: 24px;
+            font-weight: bold;
+            margin: 0 0 20px 0;
+            text-align: center;
+        }
+
+        .project-duration {
+            color: white;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .tech-stack {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .tech-tag {
+            background: #1f2937;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .project-description {
+            color: white;
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            word-wrap: break-word;
+        }
+
+        .project-impact {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: #1f2937;
+            color: white;
+            padding: 12px 18px;
+            border-radius: 10px;
+            font-size: 14px;
+            word-wrap: break-word;
+            margin-right: 70px;
+        }
+
+        .impact-icon {
+            font-size: 20px;
+        }
+
+        .project-link-btn {
+            background: #f97316;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: background 0.3s ease;
+            font-size: 14px;
+            margin-top: 15px;
+            margin-right: 90px;
+        }
+
+        .project-link-btn:hover {
+            background: #ea580c;
+        }
     </style>
 </head>
 <body>
@@ -163,7 +315,49 @@
                 <p>Vishnu Vardhan</p>
             </div>
         </div>
-        <p>Hi, I'm Durga Shankar, and along with Vishnu Vardhan, we are passionate developers working on generating academic timetables efficiently. We specialize in integrating both labs and courses into a timetable, ensuring optimal scheduling without faculty collisions.</p>
+        <p>We are <strong>Durga Shankar</strong> and <strong>Vishnu Vardhan</strong>, passionate full-stack developers dedicated to solving real-world academic challenges through innovative technology solutions.</p>
+        <p>Our expertise lies in building intelligent timetable generation systems that seamlessly integrate labs and courses while ensuring optimal scheduling. We leverage advanced algorithms to eliminate faculty collisions and maximize resource utilization, making academic planning effortless and efficient.</p>
+        <p>Together, we combine creativity with technical excellence to deliver scalable, user-friendly applications that make a meaningful impact in educational institutions.</p>
+    </section>
+
+    <section id="projects">
+        <h2>Our Projects</h2>
+        <div class="projects-container">
+            <!-- Student Communication Platform -->
+            <div class="project-card">
+                <div class="project-left-section">
+                    <div class="project-icon">🎓</div>
+                    <div class="project-quote">Managing with ease and efficiency.</div>
+                    <button class="project-admin-btn">VS Project</button>
+                </div>
+                
+                <div class="project-right-section">
+                    <div>
+                        <h3 class="project-title">Student Communication Platform</h3>
+                        <div class="project-duration">📅 Duration: May 2023 - Aug 2023</div>
+                        
+                        <div class="tech-stack">
+                            <span class="tech-tag">⚛️ React</span>
+                            <span class="tech-tag">🟢 Node.js</span>
+                            <span class="tech-tag">🔥 Firebase</span>
+                        </div>
+                        
+                        <div class="project-description">
+                            Scalable real-time chat system supporting 500+ concurrent users with seamless message delivery and user management.
+                        </div>
+                        
+                        <div class="project-impact">
+                            <span class="impact-icon">🚀</span>
+                            <strong>Impact:</strong> Enhanced collaboration between students and faculty, improving efficiency by 70%
+                        </div>
+                    </div>
+                    
+                    <a href="https://student-communication-vs.web.app/" target="_blank" class="project-link-btn">
+                        🚀 Visit Project
+                    </a>
+                </div>
+            </div>
+        </div>
     </section>
 
     <section id="contact">

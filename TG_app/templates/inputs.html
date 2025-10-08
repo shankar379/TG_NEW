@@ -317,14 +317,15 @@
     .download-section {
         position: fixed;
         bottom: 180px;
-        left: 50%;
-        transform: translateX(-50%);
+        left: 0;
+        right: 0;
         display: flex;
         gap: 15px;
         flex-wrap: wrap;
         justify-content: center;
         align-items: center;
         z-index: 100;
+        padding: 0 20px;
     }
 
     .download-button {
@@ -355,6 +356,166 @@
 
     .download-icon {
         font-size: 18px;
+    }
+
+    /* Tutorial Overlay Styles */
+    .tutorial-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.85);
+        z-index: 9999;
+        display: none;
+    }
+
+    .tutorial-overlay.active {
+        display: block;
+    }
+
+    .tutorial-message {
+        position: fixed;
+        left: 50% !important;
+        top: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        background: white;
+        padding: 25px 30px;
+        border-radius: 15px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        max-width: 400px;
+        z-index: 10000;
+        animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    .tutorial-message h3 {
+        margin: 0 0 15px 0;
+        color: #667eea;
+        font-size: 22px;
+    }
+
+    .tutorial-message p {
+        margin: 0 0 20px 0;
+        color: #333;
+        line-height: 1.6;
+        font-size: 16px;
+    }
+
+    .tutorial-buttons {
+        display: flex;
+        gap: 10px;
+        justify-content: flex-end;
+    }
+
+    .tutorial-btn {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: all 0.3s;
+    }
+
+    .tutorial-skip {
+        background: #e0e0e0;
+        color: #666;
+    }
+
+    .tutorial-skip:hover {
+        background: #d0d0d0;
+    }
+
+    .tutorial-next {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+    }
+
+    .tutorial-next:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+    }
+
+    .tutorial-highlight {
+        z-index: 10001 !important;
+        animation: pulse 2s infinite;
+        box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.7) !important;
+    }
+
+    @keyframes pulse {
+        0%, 100% {
+            box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.7) !important;
+        }
+        50% {
+            box-shadow: 0 0 30px 10px rgba(102, 126, 234, 0.3) !important;
+        }
+    }
+
+    /* Individual button glow during tutorial */
+    .btn.tutorial-highlight {
+        animation: buttonGlow 2s infinite !important;
+        box-shadow: 0 0 20px 5px rgba(102, 126, 234, 0.8) !important;
+    }
+
+    @keyframes buttonGlow {
+        0%, 100% {
+            box-shadow: 0 0 20px 5px rgba(102, 126, 234, 0.8) !important;
+            filter: brightness(1.1);
+        }
+        50% {
+            box-shadow: 0 0 40px 15px rgba(102, 126, 234, 1) !important;
+            filter: brightness(1.3);
+        }
+    }
+
+    .tutorial-pointer {
+        position: fixed;
+        font-size: 40px;
+        z-index: 10002;
+        animation: pointBounce 1s infinite;
+        pointer-events: none;
+    }
+
+    @keyframes pointBounce {
+        0%, 100% {
+            transform: translate(0, 0);
+        }
+        50% {
+            transform: translate(-10px, -10px);
+        }
+    }
+
+    .show-tutorial-btn {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        cursor: pointer;
+        border-radius: 10px;
+        font-weight: bold;
+        transition: all 0.3s;
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        z-index: 100;
+    }
+
+    .show-tutorial-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+    }
+    
+    .tutorial-pointer.multiple {
+        display: block !important;
     }
 
 
@@ -410,19 +571,28 @@
     
     <!-- Download Demo Files Section -->
     <div class="download-section">
-        <a href="{% url 'download_demo' 'courses.csv' %}" class="download-button" download>
-            <span class="download-icon">📥</span>
-            <span>Download Courses Demo</span>
-        </a>
-        <a href="{% url 'download_demo' 'lab_rooms.csv' %}" class="download-button" download>
-            <span class="download-icon">📥</span>
-            <span>Download Lab Rooms Demo</span>
-        </a>
-        <a href="{% url 'download_demo' 'labs.csv' %}" class="download-button" download>
+        <a href="{% url 'download_demo' 'labs.csv' %}" class="download-button" download title="Download and edit this file and reupload above">
             <span class="download-icon">📥</span>
             <span>Download Labs Demo</span>
         </a>
+        <a href="{% url 'download_demo' 'courses.csv' %}" class="download-button" download title="Download and edit this file and reupload above">
+            <span class="download-icon">📥</span>
+            <span>Download Courses Demo</span>
+        </a>
+        <a href="{% url 'download_demo' 'lab_rooms.csv' %}" class="download-button" download title="Download and edit this file and reupload above">
+            <span class="download-icon">📥</span>
+            <span>Download Lab Rooms Demo</span>
+        </a>
     </div>
+    
+    <!-- Tutorial Overlay -->
+    <div class="tutorial-overlay" id="tutorialOverlay"></div>
+    <div class="tutorial-pointer" id="tutorialPointer1" style="display: none;">👆</div>
+    <div class="tutorial-pointer" id="tutorialPointer2" style="display: none;">👆</div>
+    <div class="tutorial-pointer" id="tutorialPointer3" style="display: none;">👆</div>
+    
+    <!-- Show Tutorial Button -->
+    <button class="show-tutorial-btn" id="showTutorialBtn" onclick="startTutorial()">📚 Show Guide</button>
     
     <button class="exit-button" onclick="goToHomePage()">Exit</button>
     <button class="input-button" onclick="goToHelpPage()">INPUT RULES</button>
@@ -486,6 +656,222 @@
             xhr.setRequestHeader('X-CSRFToken', '{{ csrf_token }}');
             xhr.send(formData);
         }
+
+        // Tutorial System
+        let tutorialStep = 0;
+        const tutorialSteps = [
+            {
+                title: "Welcome! 👋",
+                message: "Let me show you how to use this timetable generator! Click 'Next' to continue or 'Skip' if you already know.",
+                highlight: null,
+                pointer: null
+            },
+            {
+                title: "Step 1: Generate! 🎉",
+                message: "Once all files are uploaded, click 'INPUT RULES' to learn about formatting rules, then generate your timetable!",
+                highlight: ".input-button",
+                pointer: ".input-button"
+            },
+            {
+                title: "Step 2: Download Demo Files 📥",
+                message: "First, download these demo CSV files. They show you the correct format for your data.",
+                highlight: ".download-section",
+                pointers: [
+                    ".download-section .download-button:nth-child(1)",  // Labs demo
+                    ".download-section .download-button:nth-child(2)",  // Courses demo
+                    ".download-section .download-button:nth-child(3)"   // Lab Rooms demo
+                ]
+            },
+            {
+                title: "Step 3: Edit the Files ✏️",
+                message: "Open the downloaded CSV files in Excel or any spreadsheet editor. Edit them with your own data (courses, labs, rooms).",
+                highlight: null,
+                pointer: null
+            },
+            {
+                title: "Step 4: Upload Your Files 📤",
+                message: "After editing, upload your files using these buttons above. Make sure to upload all three files: Labs, Courses, and Lab Rooms.",
+                highlight: ".btn-container",
+                highlightMultiple: [
+                    ".btn:nth-child(1)",  // Labs button
+                    ".btn:nth-child(2)",  // Courses button
+                    ".btn:nth-child(3)"   // Lab Rooms button
+                ],
+                pointers: [
+                    ".btn:nth-child(1)",  // Labs button
+                    ".btn:nth-child(2)",  // Courses button
+                    ".btn:nth-child(3)"   // Lab Rooms button
+                ]
+            }
+        ];
+
+        function startTutorial() {
+            tutorialStep = 0;
+            showTutorialStep();
+        }
+
+        function showTutorialStep() {
+            const overlay = document.getElementById('tutorialOverlay');
+            const pointer1 = document.getElementById('tutorialPointer1');
+            const pointer2 = document.getElementById('tutorialPointer2');
+            const pointer3 = document.getElementById('tutorialPointer3');
+            
+            // Hide all pointers first
+            pointer1.style.display = 'none';
+            pointer2.style.display = 'none';
+            pointer3.style.display = 'none';
+            
+            // Remove previous highlights
+            document.querySelectorAll('.tutorial-highlight').forEach(el => {
+                el.classList.remove('tutorial-highlight');
+            });
+
+            if (tutorialStep >= tutorialSteps.length) {
+                endTutorial();
+                return;
+            }
+
+            const step = tutorialSteps[tutorialStep];
+            
+            // Show overlay
+            overlay.classList.add('active');
+            
+            // Create message box
+            const messageBox = document.createElement('div');
+            messageBox.className = 'tutorial-message';
+            
+            messageBox.innerHTML = `
+                <h3>${step.title}</h3>
+                <p>${step.message}</p>
+                <div class="tutorial-buttons">
+                    <button class="tutorial-btn tutorial-skip" onclick="skipTutorial()">Skip Tutorial</button>
+                    <button class="tutorial-btn tutorial-next" onclick="nextTutorialStep()">
+                        ${tutorialStep === tutorialSteps.length - 1 ? 'Finish' : 'Next'}
+                    </button>
+                </div>
+            `;
+            
+            overlay.appendChild(messageBox);
+            
+            // Highlight element if specified
+            if (step.highlight) {
+                const element = document.querySelector(step.highlight);
+                if (element) {
+                    // Store original styles
+                    if (!element.dataset.originalZIndex) {
+                        element.dataset.originalZIndex = element.style.zIndex || '';
+                    }
+                    element.classList.add('tutorial-highlight');
+                }
+            }
+            
+            // Highlight multiple elements if specified
+            if (step.highlightMultiple && Array.isArray(step.highlightMultiple)) {
+                step.highlightMultiple.forEach(selector => {
+                    const element = document.querySelector(selector);
+                    if (element) {
+                        if (!element.dataset.originalZIndex) {
+                            element.dataset.originalZIndex = element.style.zIndex || '';
+                        }
+                        element.classList.add('tutorial-highlight');
+                    }
+                });
+            }
+            
+            // Show multiple pointers if specified
+            if (step.pointers && Array.isArray(step.pointers)) {
+                const pointers = [pointer1, pointer2, pointer3];
+                step.pointers.forEach((selector, index) => {
+                    const element = document.querySelector(selector);
+                    if (element && pointers[index]) {
+                        const rect = element.getBoundingClientRect();
+                        pointers[index].style.display = 'block';
+                        pointers[index].style.left = (rect.left + rect.width / 2 - 20) + 'px';
+                        // Position hands based on button type
+                        const isUploadButton = element.classList.contains('btn');
+                        const isDownloadButton = element.classList.contains('download-button');
+                        let topOffset = -50;  // Default: 50px above
+                        if (isUploadButton) {
+                            topOffset = 20;  // Upload buttons: 20px down (inside button)
+                        } else if (isDownloadButton) {
+                            topOffset = -20;  // Download buttons: 20px above (closer than default)
+                        }
+                        pointers[index].style.top = (rect.top + topOffset) + 'px';
+                    }
+                });
+            }
+            // Show single pointer if specified
+            else if (step.pointer) {
+                const element = document.querySelector(step.pointer);
+                if (element) {
+                    const rect = element.getBoundingClientRect();
+                    pointer1.style.display = 'block';
+                    pointer1.style.left = (rect.left + rect.width / 2 - 20) + 'px';
+                    pointer1.style.top = (rect.top - 50) + 'px';
+                }
+            }
+        }
+
+        function nextTutorialStep() {
+            const overlay = document.getElementById('tutorialOverlay');
+            const messageBox = overlay.querySelector('.tutorial-message');
+            if (messageBox) {
+                messageBox.remove();
+            }
+            
+            // Clean up highlights from previous step
+            document.querySelectorAll('.tutorial-highlight').forEach(el => {
+                el.classList.remove('tutorial-highlight');
+                if (el.dataset.originalZIndex !== undefined) {
+                    el.style.zIndex = el.dataset.originalZIndex;
+                    delete el.dataset.originalZIndex;
+                }
+            });
+            
+            tutorialStep++;
+            showTutorialStep();
+        }
+
+        function skipTutorial() {
+            endTutorial();
+            localStorage.setItem('tutorialCompleted', 'true');
+        }
+
+        function endTutorial() {
+            const overlay = document.getElementById('tutorialOverlay');
+            const pointer1 = document.getElementById('tutorialPointer1');
+            const pointer2 = document.getElementById('tutorialPointer2');
+            const pointer3 = document.getElementById('tutorialPointer3');
+            const messageBox = overlay.querySelector('.tutorial-message');
+            
+            if (messageBox) {
+                messageBox.remove();
+            }
+            
+            overlay.classList.remove('active');
+            pointer1.style.display = 'none';
+            pointer2.style.display = 'none';
+            pointer3.style.display = 'none';
+            
+            // Remove all highlights and restore original styles
+            document.querySelectorAll('.tutorial-highlight').forEach(el => {
+                el.classList.remove('tutorial-highlight');
+                // Restore original z-index
+                if (el.dataset.originalZIndex !== undefined) {
+                    el.style.zIndex = el.dataset.originalZIndex;
+                    delete el.dataset.originalZIndex;
+                }
+            });
+            
+            localStorage.setItem('tutorialCompleted', 'true');
+        }
+
+        // Auto-start tutorial for first-time users
+        window.addEventListener('load', function() {
+            if (!localStorage.getItem('tutorialCompleted')) {
+                setTimeout(startTutorial, 1000);
+            }
+        });
     </script>
 </body>
 </html>
