@@ -1,0 +1,24 @@
+Day,09:00 - 10:00,10:00 - 10:50,11:10 - 12:00,12:00 - 12:50,Lunch Break,01:30 - 02:20,02:20 - 03:10,03:10 - 04:00
+Monday,"SE LAB (murthy), SOC LAB (cse_new3)","SE LAB (murthy), SOC LAB (cse_new3)","SE LAB (murthy), SOC LAB (cse_new3)",CD (cse_new2),Lunch Break,OS (joshmeri),CD (cse_new2),OPEN_ELECTIVE (cse_new3)
+Tuesday,ML (sharma),OPEN_ELECTIVE (cse_new3),ML (sharma),OS (joshmeri),Lunch Break,"ML LAB (sharma), ES LAB (swathi)","ML LAB (sharma), ES LAB (swathi)","ML LAB (sharma), ES LAB (swathi)"
+Wednesday,SOC LAB (cse_new3),"SE LAB (murthy), SOC LAB (cse_new3)","SE LAB (murthy), SOC LAB (cse_new3)",SE LAB (murthy),Lunch Break,SE (murthy),ML (sharma),SE (murthy)
+Thursday,SE (murthy),OPEN_ELECTIVE (cse_new3),SE (murthy),CD (cse_new2),Lunch Break,"OS LAB (joshmeri), ML LAB (sharma)","OS LAB (joshmeri), ML LAB (sharma)","OS LAB (joshmeri), ML LAB (sharma)"
+Friday,CD (cse_new2),OPEN_ELECTIVE (cse_new3),CD (cse_new2),OPEN_ELECTIVE (cse_new3),Lunch Break,ML (sharma),OS (joshmeri),ML (sharma)
+Saturday,CD LAB (cse_new2),CD LAB (cse_new2),CD LAB (cse_new2),OS (joshmeri),Lunch Break,OS (joshmeri),Free,Free
+
+
+Faculty and Courses for Year year3, Department DS:
+ faculty        course
+cse_new2            CD
+cse_new3 OPEN_ELECTIVE
+joshmeri            OS
+  murthy            SE
+  sharma            ML
+Faculty and Labs for Year year3, Department DS:
+ faculty lab_name
+cse_new2   CD LAB
+cse_new3  SOC LAB
+joshmeri   OS LAB
+  murthy   SE LAB
+  sharma   ML LAB
+  swathi   ES LAB
