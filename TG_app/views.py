@@ -86,7 +86,11 @@ def generate_timetable(request):
     if request.method == 'POST':
         script_path = os.path.join(settings.BASE_DIR, 'TG_app', 'timetable_generator.py')
         try:
-            subprocess.Popen(['python', script_path])
+            # Run the script in background but don't wait for completion
+            # This allows the web request to return immediately
+            subprocess.Popen(['python', script_path], 
+                           stdout=subprocess.DEVNULL, 
+                           stderr=subprocess.DEVNULL)
             return JsonResponse({'status': 'success', 'message': 'Timetable generation started.'})
         except Exception as e:
             return JsonResponse({'status': 'error', 'message': str(e)})
@@ -119,13 +123,23 @@ from django.conf import settings
 import os
 
 def download_file(request, file_name):
-    file_path = os.path.join(settings.MEDIA_ROOT, 'FACULTY_timetables', file_name)
-    if os.path.exists(file_path):
+    # Try faculty timetables first
+    faculty_file_path = os.path.join(settings.MEDIA_ROOT, 'FACULTY_timetables', file_name)
+    department_file_path = os.path.join(settings.MEDIA_ROOT, 'DEPARTMENT_timetables', file_name)
+    
+    file_path = None
+    if os.path.exists(faculty_file_path):
+        file_path = faculty_file_path
+    elif os.path.exists(department_file_path):
+        file_path = department_file_path
+    
+    if file_path:
         with open(file_path, 'rb') as fh:
             response = HttpResponse(fh.read(), content_type="application/vnd.ms-excel")
-            response['Content-Disposition'] = 'inline; filename=' + os.path.basename(file_path)
+            response['Content-Disposition'] = f'attachment; filename={os.path.basename(file_path)}'
             return response
-    raise Http404
+    
+    raise Http404("File not found")
 
 
 def profile(request):

@@ -1,10 +1,10 @@
 Day,09:00 - 10:00,10:00 - 10:50,11:10 - 12:00,12:00 - 12:50,Lunch Break,01:30 - 02:20,02:20 - 03:10,03:10 - 04:00
-Monday,ML (sharma),OPEN_ELECTIVE (cse_new2),ML (sharma),OS (joshmeri),Lunch Break,"ML LAB (sharma), SE LAB (murthy)","ML LAB (sharma), SE LAB (murthy)","ML LAB (sharma), SE LAB (murthy)"
-Tuesday,CD (cse_new1),"SOC LAB (cse_new2), SE LAB (murthy)","SOC LAB (cse_new2), SE LAB (murthy)","SOC LAB (cse_new2), SE LAB (murthy)",Lunch Break,OS (joshmeri),SE (murthy),OPEN_ELECTIVE (cse_new2)
-Wednesday,ML (sharma),ES LAB (swathi),ES LAB (swathi),ES LAB (swathi),Lunch Break,SE (murthy),CD (cse_new1),SE (murthy)
-Thursday,"CD LAB (cse_new1), SOC LAB (cse_new2)","CD LAB (cse_new1), SOC LAB (cse_new2)","CD LAB (cse_new1), SOC LAB (cse_new2)",OS (joshmeri),Lunch Break,OPEN_ELECTIVE (cse_new2),CD (cse_new1),OPEN_ELECTIVE (cse_new2)
-Friday,OS (joshmeri),"OS LAB (joshmeri), ML LAB (sharma)","OS LAB (joshmeri), ML LAB (sharma)","OS LAB (joshmeri), ML LAB (sharma)",Lunch Break,ML (sharma),OPEN_ELECTIVE (cse_new2),OS (joshmeri)
-Saturday,CD (cse_new1),ML (sharma),CD (cse_new1),SE (murthy),Lunch Break,CD LAB (cse_new1),CD LAB (cse_new1),CD LAB (cse_new1)
+Monday,OPEN_ELECTIVE (cse_new2),CD (cse_new1),OS (joshmeri),SE (murthy),Lunch Break,"ML LAB (sharma), SE LAB (murthy)","ML LAB (sharma), SE LAB (murthy)","ML LAB (sharma), SE LAB (murthy)"
+Tuesday,CD (cse_new1),"SOC LAB (cse_new2), SE LAB (murthy)","SOC LAB (cse_new2), SE LAB (murthy)","SOC LAB (cse_new2), SE LAB (murthy)",Lunch Break,OPEN_ELECTIVE (cse_new2),CD (cse_new1),OS (joshmeri)
+Wednesday,ML (sharma),ES LAB (swathi),ES LAB (swathi),ES LAB (swathi),Lunch Break,CD (cse_new1),ML (sharma),CD (cse_new1)
+Thursday,"CD LAB (cse_new1), SOC LAB (cse_new2)","CD LAB (cse_new1), SOC LAB (cse_new2)","CD LAB (cse_new1), SOC LAB (cse_new2)",SE (murthy),Lunch Break,OPEN_ELECTIVE (cse_new2),SE (murthy),OPEN_ELECTIVE (cse_new2)
+Friday,ML (sharma),"OS LAB (joshmeri), ML LAB (sharma)","OS LAB (joshmeri), ML LAB (sharma)","OS LAB (joshmeri), ML LAB (sharma)",Lunch Break,ML (sharma),OS (joshmeri),SE (murthy)
+Saturday,OS (joshmeri),ML (sharma),OS (joshmeri),OPEN_ELECTIVE (cse_new2),Lunch Break,CD LAB (cse_new1),CD LAB (cse_new1),CD LAB (cse_new1)
 
 
 Faculty and Courses for Year year3, Department AIML:

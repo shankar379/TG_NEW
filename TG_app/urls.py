@@ -16,6 +16,7 @@ urlpatterns = [
     path('help.html', views.help, name='help'), 
     path('rules.html', views.rules, name='rules'),
     path('download-demo/<str:filename>', views.download_demo, name='download_demo'),
+    path('download/<str:file_name>', views.download_file, name='download_file'),
     
 ]  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 if settings.DEBUG:

@@ -312,8 +312,8 @@
                     },
                     success: function(response) {
                         if (response.status === "success") {
-                            alert("Timetable generation started.");
-                            window.location.href = 'loading_animation.html';
+                            alert("Timetable generation started. You will be redirected to view the results shortly.");
+                            window.location.href = '/loading_animation.html';
                         } else {
                             alert("Error: " + response.message);
                         }
