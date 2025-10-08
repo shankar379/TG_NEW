@@ -25,7 +25,7 @@ def inputs(request):
     if request.method == 'POST' and request.FILES:
         for file_key in request.FILES:
             file = request.FILES[file_key]
-            file_path = os.path.join(settings.BASE_DIR, 'myapp', 'media', file.name)
+            file_path = os.path.join(settings.BASE_DIR, 'TG_app', 'media', file.name)
             
             # Check if the file already exists in the directory
             if os.path.exists(file_path):
@@ -84,7 +84,7 @@ def loading_animation(request):
 
 def generate_timetable(request):
     if request.method == 'POST':
-        script_path = os.path.join(settings.BASE_DIR, 'myapp', 'timetable_generator.py')
+        script_path = os.path.join(settings.BASE_DIR, 'TG_app', 'timetable_generator.py')
         try:
             subprocess.Popen(['python', script_path])
             return JsonResponse({'status': 'success', 'message': 'Timetable generation started.'})
