@@ -106,6 +106,12 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'TG_app', 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# CSRF settings for Railway deployment
+CSRF_TRUSTED_ORIGINS = [
+    'https://time-table-generetor.up.railway.app',
+    'https://*.up.railway.app',
+]
+
 # Additional settings for production
 if not DEBUG:
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
