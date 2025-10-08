@@ -314,7 +314,48 @@
     transition: background 0.3s;
     }
 
-    
+    .download-section {
+        position: fixed;
+        bottom: 180px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        z-index: 100;
+    }
+
+    .download-button {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        cursor: pointer;
+        border-radius: 10px;
+        font-size: 14px;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .download-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+    }
+
+    .download-button:active {
+        transform: translateY(-1px);
+    }
+
+    .download-icon {
+        font-size: 18px;
+    }
 
 
           </style>
@@ -367,6 +408,21 @@
         </ul>
     </div>
     
+    <!-- Download Demo Files Section -->
+    <div class="download-section">
+        <a href="{% url 'download_demo' 'courses.csv' %}" class="download-button" download>
+            <span class="download-icon">📥</span>
+            <span>Download Courses Demo</span>
+        </a>
+        <a href="{% url 'download_demo' 'lab_rooms.csv' %}" class="download-button" download>
+            <span class="download-icon">📥</span>
+            <span>Download Lab Rooms Demo</span>
+        </a>
+        <a href="{% url 'download_demo' 'labs.csv' %}" class="download-button" download>
+            <span class="download-icon">📥</span>
+            <span>Download Labs Demo</span>
+        </a>
+    </div>
     
     <button class="exit-button" onclick="goToHomePage()">Exit</button>
     <button class="input-button" onclick="goToHelpPage()">INPUT RULES</button>

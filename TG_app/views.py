@@ -141,3 +141,27 @@ def help(request):
 
 def rules(request):
     return render(request, 'rules.html')
+
+def download_demo(request, filename):
+    """Download demo CSV files"""
+    from django.http import FileResponse, Http404
+    import os
+    from django.conf import settings
+    
+    # Define the demo files directory
+    demo_dir = os.path.join(settings.BASE_DIR, 'TG_app', 'media', 'demo_files')
+    file_path = os.path.join(demo_dir, filename)
+    
+    # Security check: ensure filename is one of the allowed demo files
+    allowed_files = ['courses.csv', 'lab_rooms.csv', 'labs.csv']
+    if filename not in allowed_files:
+        raise Http404("File not found")
+    
+    # Check if file exists
+    if not os.path.exists(file_path):
+        raise Http404("File not found")
+    
+    # Return file as download
+    response = FileResponse(open(file_path, 'rb'), content_type='text/csv')
+    response['Content-Disposition'] = f'attachment; filename="{filename}"'
+    return response
